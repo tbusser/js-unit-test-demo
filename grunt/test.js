@@ -19,5 +19,14 @@ module.exports = {
     options: {
       baseUrl: '../lib'                   /* [4] */
     }
+  },
+
+  // Configure the testcover target
+  // 5: This is the path where the instrumented versions of the JavaScript files
+  //    are placed. It is relative to the /test folder
+  testcover: {
+    options: {
+      baseUrl: 'src'                      /* [5] */
+    }
   }
 };

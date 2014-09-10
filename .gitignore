@@ -18,3 +18,6 @@ out
 test/src
 test/reports
 index.html
+coverage/html/prettify.css
+coverage/html/prettify.js
+coverage/html/lib/Example.js.html
