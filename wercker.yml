@@ -1,0 +1,16 @@
+# 1: This tells Wercker the project is a Node.js project.
+# 2: This is a custom install step which we need to install the grunt-cli
+#    package. We need this to run our unit tests.
+# 3: This will run the "npm install" command, it will the Node.js packages we
+#    need for the project.
+# 4: This will run the command "npm test", we set it up in the package.json file
+#    to run the command "grunt test:testonly".
+box: wercker/nodejs                             # [1]
+# Build definition
+build:
+  steps:
+    - script:                                   # [2]
+        name: install grunt-cli
+        code: sudo npm install -g grunt-cli
+    - npm-install                               # [3]
+    - npm-test                                  # [4] 
