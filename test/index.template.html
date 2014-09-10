@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mocha</title>
+  <!-- This will include Mocha's default look & feel -->
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+  <!-- We need Mocha itself -->
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <!-- This will load the assertion library -->
+  <script src="../node_modules/expect.js/index.js"></script>
+  <!-- This will add require.js for loading the AMD-modules -->
+  <script src="../node_modules/requirejs/require.js"></script>
+</head>
+<body>
+
+<div id="mocha">
+</div>
+
+<script>
+  // Setup Mocha
+  mocha.setup('bdd');
+  // When we detect the presence of mochaPhantomJS we will use this to run our
+  // tests in a headless browser from the command line. When mochaPhantomJS is
+  // not present the test is run from a normal browser and we can just mocha.
+  var mochaCallback = (window.mochaPhantomJS) ? mochaPhantomJS.run : mocha.run;
+
+  // Configure the require library. We're using two placeholders so we can use
+  // Grunt to configure the HTML file the specs we want.
+  require.config({
+    baseUrl: {{ baseUrl }},
+    deps: {{ tests }},
+    callback: mochaCallback
+  });
+</script>
+
+</body>
+</html>
