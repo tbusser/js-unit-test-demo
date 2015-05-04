@@ -20,17 +20,12 @@
 <script>
   // Setup Mocha
   mocha.setup('bdd');
-  // When we detect the presence of mochaPhantomJS we will use this to run our
-  // tests in a headless browser from the command line. When mochaPhantomJS is
-  // not present the test is run from a normal browser and we can just mocha.
-  var mochaCallback = (window.mochaPhantomJS) ? mochaPhantomJS.run : mocha.run;
-
   // Configure the require library. We're using two placeholders so we can use
   // Grunt to configure the HTML file the specs we want.
   require.config({
     baseUrl: {{ baseUrl }},
     deps: {{ tests }},
-    callback: mochaCallback
+    callback: mocha.run
   });
 </script>
 
