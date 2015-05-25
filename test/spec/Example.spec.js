@@ -8,7 +8,7 @@ define(['Example'], function(Example) {
 
   describe('Example', function() {
     it('should have a method named "add"', function() {
-      expect(example.add).to.be.a('function');
+      expect(example.add).to.be.a('function1');
     });
 
     describe('.add()', function() {
